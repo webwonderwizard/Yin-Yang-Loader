@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.yin-yang {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 80vmin;
+  height: 80vmin;
+  background: linear-gradient(black 50%, white 0);
+  border: 4px solid black;
+  border-radius: 50%;
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+}
+.yin-yang::before,
+.yin-yang::after {
+  display: block;
+  box-sizing: border-box;
+  content: " ";
+  flex: 1;
+  height: 40vmin;
+  border: 13.33333333vmin solid;
+  border-radius: 50%;
+  animation-name: size;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.yin-yang::before {
+  transform-origin: 0% 50%;
+  background: black;
+  border-color: white;
+  animation-direction: alternate-reverse;
+}
+.yin-yang::after {
+  transform-origin: 100% 50%;
+  background: white;
+  border-color: black;
+}
+
+@keyframes size {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
